@@ -19,7 +19,7 @@ import info from "../assets/info.png";
 import home from "../assets/home.png";
 import { useState } from "react";
 
-export default function Calculator() {
+export default function Calculator({ navigation }) {
   const [measure, setMeasure] = useState("");
   const [used, setUsed] = useState("");
   const [unit, setUnit] = useState("");
@@ -51,7 +51,9 @@ export default function Calculator() {
       <View style={styles.container}>
         <ImageBackground source={bg} style={styles.imageBg}>
           <View style={styles.header}>
-            <Image source={arrow} />
+            <Pressable onPress={() => navigation.navigate("Home")}>
+              <Image source={arrow} />
+            </Pressable>
             <Text style={styles.textHeader}>บิลค่าน้ำ</Text>
           </View>
           <Image source={calculatoricon} style={styles.iconHeader} />
